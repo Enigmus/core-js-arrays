@@ -19,11 +19,22 @@
  *    getIntervalArray(-2, 2)  => [ -2, -1, 0, 1, 2 ]
  *    getIntervalArray(0, 100) => [ 0, 1, 2, ..., 100 ]
  *    getIntervalArray(3, 3) => [ 3 ]
- */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+ *
+ *
+ *
+ ////не оптимально, но работает!!!
+function getIntervalArray(start, end, arr = []) {
+  if (start > end) return arr;
+  return getIntervalArray(start + 1, end, arr.concat(start));
+}
+*/
+function getIntervalArray(start, end) {
+  return Array.from(
+    new Array(end - start + 1).fill(0).map((el, ind) => el + start + ind)
+  );
 }
 
+/* console.log(getIntervalArray(-2, 2)); */
 /**
  * Returns a new array where each element is the sum of the corresponding elements
  * from two arrays. Arrays can have different lengths.
