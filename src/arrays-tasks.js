@@ -274,10 +274,17 @@ function distinct(arr) {
  *    createNDimensionalArray(4, 2) => [[[[0, 0], [0, 0]], [[0, 0], [0, 0]]], [[[0, 0], [0, 0]], [[0, 0], [0, 0]]]]
  *    createNDimensionalArray(1, 1) => [0]
  */
-function createNDimensionalArray(/* n, size */) {
-  throw new Error('Not implemented');
+/* function createNDimensionalArray(n, size) {
+  let arr = new Array(size).fill(0);
+  let out = [];
+  for (let i = 0; i < n; i += 1) {
+    out.push([]);
+  }
+  return out;
 }
 
+console.log(createNDimensionalArray(2, 3)); */
+function createNDimensionalArray() {}
 /**
  * Flattens a nested array into a single-level array.
  *
@@ -355,8 +362,9 @@ function createChunks(/* arr, chunkSize */) {
  *    generateOdds(2) => [ 1, 3 ]
  *    generateOdds(5) => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(/* len */) {
-  throw new Error('Not implemented');
+function generateOdds(len, i = 1, arr = []) {
+  if (arr.length === len) return arr;
+  return generateOdds(len, i + 2, arr.concat(i));
 }
 
 /**
