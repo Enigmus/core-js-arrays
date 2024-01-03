@@ -27,11 +27,16 @@ function getIntervalArray(start, end, arr = []) {
   if (start > end) return arr;
   return getIntervalArray(start + 1, end, arr.concat(start));
 }
-*/
+///Костыли
 function getIntervalArray(start, end) {
   return Array.from(
     new Array(end - start + 1).fill(0).map((el, ind) => el + start + ind)
   );
+}
+///решение ниже, идея взяля с МДН
+*/
+function getIntervalArray(start, end) {
+  return Array.from({ length: end - start + 1 }, (el, ind) => start + ind);
 }
 
 /* console.log(getIntervalArray(-2, 2)); */
@@ -312,8 +317,8 @@ function flattenArray(nestedArray) {
  *   selectMany([[1, 2], [3, 4], [5, 6]], (x) => x) =>   [ 1, 2, 3, 4, 5, 6 ]
  *   selectMany(['one','two','three'], (x) => x.split('')) =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
-  throw new Error('Not implemented');
+function selectMany(arr, childrenSelector) {
+  return arr.flatMap((el) => childrenSelector(el));
 }
 
 /**
