@@ -279,17 +279,16 @@ function distinct(arr) {
  *    createNDimensionalArray(4, 2) => [[[[0, 0], [0, 0]], [[0, 0], [0, 0]]], [[[0, 0], [0, 0]], [[0, 0], [0, 0]]]]
  *    createNDimensionalArray(1, 1) => [0]
  */
-/* function createNDimensionalArray(n, size) {
-  let arr = new Array(size).fill(0);
-  let out = [];
-  for (let i = 0; i < n; i += 1) {
-    out.push([]);
-  }
-  return out;
+
+function createNDimensionalArray(n, size) {
+  if (n === 0) return [];
+  if (n === 1) return new Array(size).fill(0);
+  return new Array(size)
+    .fill(0)
+    .map(() => createNDimensionalArray(n - 1, size));
 }
 
-console.log(createNDimensionalArray(2, 3)); */
-function createNDimensionalArray() {}
+console.log(createNDimensionalArray(3, 1));
 /**
  * Flattens a nested array into a single-level array.
  *
