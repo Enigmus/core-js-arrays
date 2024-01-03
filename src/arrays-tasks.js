@@ -288,7 +288,7 @@ function createNDimensionalArray(n, size) {
     .map(() => createNDimensionalArray(n - 1, size));
 }
 
-console.log(createNDimensionalArray(3, 1));
+/* console.log(createNDimensionalArray(3, 4)); */
 /**
  * Flattens a nested array into a single-level array.
  *
